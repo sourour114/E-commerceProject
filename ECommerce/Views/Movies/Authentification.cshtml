@@ -5,20 +5,31 @@
 }
 
 <h2>Authentification</h2>
+@{
+    var total = "";
+    if (IsPost)
+    {
+        var num1 = Request["text1"];
+        var num2 = Request["text2"];
+        total = num1 + num2;
+        
+    }
+}
 
 <div>
     <div>
-        <form method="post" id="form">
+        <form method="post" id="form" style="margin: 28px 420px;">
             <p style="font-size:medium">Interface autentification with ASP.net</p>
-            <label for="nom">nom</label>
-            <input type="text" name="nom" class="form" id="nom" onblur="myfunction7()"><br />
-            <label for="prénom">prénom</label>
-            <input type="text" name="prénom" class="form" id="prénom" onblur="myfunction1()"><br />
-            <button type="submit" style="background-color:aqua; border:solid">Submit</button>
+            <label for="test1">Name of movie</label>
+            <input type="text" name="text1" class="form" id="name"><br />
+            <label for="text2">Category</label>
+            <input type="text" name="text2" class="form" id="category" ><br />
+            <button type="submit" class="btn btn-primary">Submit</button>
 
         </form>
+        <p>@total</p>
     </div>
-    <div>
+    @*<div>
         <form style="align-items:center">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -36,5 +47,5 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
-    </div>
+    </div>*@
 </div>

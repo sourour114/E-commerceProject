@@ -9,22 +9,11 @@ namespace ECommerce.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: Movies
-        //public ActionResult Random()
-        //{
-        //    using (var MM = new MoviesManagement())
-        //    {
-        //        var movie = new Movie() { Name = "shrek!" };
-        //        MM.Movies.Add(movie);
-        //        MM.SaveChanges();
-        //    }
-            
-            
-        //    return View();
-        //}
-        //public ActionResult Authentification()
-        //{
-        //    return View();
-        //}
+        public ActionResult GetRandom() => View();
+
+        public ActionResult Authentification()
+        {
+            return View();
+        } 
     }
 }

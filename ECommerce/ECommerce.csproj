@@ -130,6 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="DTS\AppDbContext.cs" />
@@ -140,8 +141,17 @@
     <Compile Include="Migrations\202108051253507_InitialMigration.designer.cs">
       <DependentUpon>202108051253507_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108060823589_TabCustomer.cs" />
+    <Compile Include="Migrations\202108060823589_TabCustomer.designer.cs">
+      <DependentUpon>202108060823589_TabCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108061218261_modification.cs" />
+    <Compile Include="Migrations\202108061218261_modification.designer.cs">
+      <DependentUpon>202108061218261_modification.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -188,6 +198,7 @@
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Movies\Authentification.cshtml" />
+    <Content Include="Views\Customers\SignIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -212,6 +223,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202108051253507_InitialMigration.resx">
       <DependentUpon>202108051253507_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108060823589_TabCustomer.resx">
+      <DependentUpon>202108060823589_TabCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108061218261_modification.resx">
+      <DependentUpon>202108061218261_modification.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
