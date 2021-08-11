@@ -1,8 +1,6 @@
-﻿namespace ECommerce.Migrations
+namespace ECommerce.Migrations
 {
-    using ECommerce.Models;
     using System;
-    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -16,25 +14,18 @@
 
         protected override void Seed(ECommerce.DTS.AppDbContext context)
         {
-           if(context.Movies.Count() == 0)
-            {
-                context.Movies.Add(new Movie
-                {
-                    Name = "Titanic",
-                    Categories = new List<Category>
-                    {
-                        new Category
-                        {
-                            Name = "Romance"
-                        },
-                        new Category
-                        {
-                            Name="Drama"
-                        }
-                    }
-                });
-                context.SaveChanges();
-            }
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data. E.g.
+            //
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
         }
     }
 }

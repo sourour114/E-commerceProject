@@ -14,9 +14,6 @@ namespace ECommerce.DTS
 
         }
 
-        public DbSet<Movie> Movies { get; set; }
-
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Users> Users { get; set; }
     }
 }
