@@ -16,5 +16,6 @@ namespace ECommerce.Controllers
             var commercials = db.Commercial.ToList();
             return View(commercials);
         }
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ECommerce.Models.Enummeratin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -14,6 +15,6 @@ namespace ECommerce.Models
         public string Name { get; set; }
         public string LogIn { get; set; }
         public string Password { get; set; }
-        public string Role { get; set; }
+        public Role Role { get; set; }
     }
 }

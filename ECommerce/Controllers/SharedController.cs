@@ -20,7 +20,7 @@ namespace ECommerce.Controllers
         {
             using (AppDbContext context = new AppDbContext())
             {
-                if (context.Users.Any(x => x.Name == user.Name && x.LogIn == user.LogIn && x.Password == user.Role))
+                if (context.Users.Any(x => x.Name == user.Name && x.LogIn == user.LogIn && x.Password == user.Password))
                 {
                     ViewBag.Message = "Customer already exist.";
                     return View("SignUp", user);
@@ -50,7 +50,7 @@ namespace ECommerce.Controllers
                     Users user = context.Users.FirstOrDefault(x => x.LogIn.ToUpper().Equals(AdrMail.ToUpper()) && x.Password == Password);
                     if (user != null)
                     {
-                        if (user.Role == "admin")
+                        if (user.Role == 0)
                         {
                             return RedirectToAction("Index", "Admin");
                         }

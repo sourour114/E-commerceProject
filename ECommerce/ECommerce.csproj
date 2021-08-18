@@ -136,22 +136,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108111022503_userstable.cs" />
-    <Compile Include="Migrations\202108111022503_userstable.Designer.cs">
-      <DependentUpon>202108111022503_userstable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108111041586_userstable1.cs" />
-    <Compile Include="Migrations\202108111041586_userstable1.Designer.cs">
-      <DependentUpon>202108111041586_userstable1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108161347346_database.cs" />
-    <Compile Include="Migrations\202108161347346_database.Designer.cs">
-      <DependentUpon>202108161347346_database.cs</DependentUpon>
+    <Compile Include="Migrations\202108181408499_init.cs" />
+    <Compile Include="Migrations\202108181408499_init.Designer.cs">
+      <DependentUpon>202108181408499_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Commande.cs" />
     <Compile Include="Models\Commercial.cs" />
+    <Compile Include="Models\Enummeratin\Role.cs" />
     <Compile Include="Models\Produit.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -201,6 +194,7 @@
     <Content Include="Views\Commande\BonDeCommande.cshtml" />
     <Content Include="Views\Client\Index.cshtml" />
     <Content Include="Views\Commande\Index.cshtml" />
+    <Content Include="Views\Admin\GererComptsCommerciaux.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -224,14 +218,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202108111022503_userstable.resx">
-      <DependentUpon>202108111022503_userstable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108111041586_userstable1.resx">
-      <DependentUpon>202108111041586_userstable1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108161347346_database.resx">
-      <DependentUpon>202108161347346_database.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202108181408499_init.resx">
+      <DependentUpon>202108181408499_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
