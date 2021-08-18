@@ -15,5 +15,13 @@ namespace ECommerce.DTS
         }
 
         public DbSet<Users> Users { get; set; }
+        public DbSet<Client> Client { get; set; }
+
+        public DbSet<Commande> Commande { get; set; }
+
+        public DbSet<Commercial> Commercial { get; set; }
+
+        public DbSet<Produit> Produit { get; set; }
+
     }
 }
