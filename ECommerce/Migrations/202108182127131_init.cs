@@ -32,17 +32,21 @@ namespace ECommerce.Migrations
                 .PrimaryKey(t => t.IdCommande);
             
             CreateTable(
-                "dbo.Commercials",
+                "dbo.Users",
                 c => new
                     {
-                        IdCommercial = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false, identity: true),
                         NomPrenom = c.String(),
                         DateNaissance = c.String(),
-                        Salaire = c.Double(nullable: false),
-                        Mail = c.String(),
                         Telephone = c.Int(nullable: false),
+                        LogIn = c.String(),
+                        Password = c.String(),
+                        Role = c.Int(nullable: false),
+                        IdCommercial = c.Int(),
+                        Salaire = c.Double(),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
                     })
-                .PrimaryKey(t => t.IdCommercial);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Produits",
@@ -55,25 +59,12 @@ namespace ECommerce.Migrations
                     })
                 .PrimaryKey(t => t.IdProduit);
             
-            CreateTable(
-                "dbo.Users",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        LogIn = c.String(),
-                        Password = c.String(),
-                        Role = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
         }
         
         public override void Down()
         {
-            DropTable("dbo.Users");
             DropTable("dbo.Produits");
-            DropTable("dbo.Commercials");
+            DropTable("dbo.Users");
             DropTable("dbo.Commandes");
             DropTable("dbo.Clients");
         }

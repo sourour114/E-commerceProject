@@ -11,8 +11,9 @@ namespace ECommerce.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-        public string Name { get; set; }
+        public string NomPrenom { get; set; }
+        public string DateNaissance { get; set; }
+        public int Telephone { get; set; }
         public string LogIn { get; set; }
         public string Password { get; set; }
         public Role Role { get; set; }

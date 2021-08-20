@@ -1,0 +1,123 @@
+﻿<div style="padding: 150px">
+    <div class="register-box " style="margin-left:350px; width:max-content;">
+        <div class="card">
+            <div class="card-body register-card-body">
+                <p class="login-box-msg">Ajout d'un commercial</p>
+
+                <form action="@Url.Action("AjoutCommercial","Admin")" method="post">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" name="NomPrenom" placeholder="Nom  Prénom">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-user"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" name="phone" placeholder="Télèphone">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-user"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-group mb-3">
+                                    <input type="date" class="form-control" name="DateNaissance" placeholder="jj/mm/aaaa">
+
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group mb-3">
+                                    <input type="email" class="form-control" name="LogIn" placeholder="Email">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-envelope"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" name="Cin" placeholder="CIN">
+
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group mb-3">
+                                    <input type="password" class="form-control" name="Password" placeholder="Password">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-lock"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" name="Salaire" placeholder="Salaire">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-lock"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group mb-3">
+                                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div><!-- /.card -->
+    </div>
+</div>
+
+@*< script src = "~/Scripts/jquery-1.11.3.min.js" > < /script>
+
+< script src = "~/Scripts/jquery.validate.min.js" > < /script> < script src = "~/Scripts/jquery.validate.unobtrusive.min.js" > < /script>
+
+< link href = "~/bootstrap-3.3.6-dist/css/bootstrap.min.css"
+rel = "stylesheet" / >
+    < script src = "~/bootstrap-3.3.6-dist/js/bootstrap.js" > < /script>
+
+< script src = "https://lipis.github.io/bootstrap-sweetalert/lib/sweet-alert.js" > < /script> < link href = "~/Content/sweetalert/sweet-alert.css"
+rel = "stylesheet" / >*@
+
+@*<script type="text/javascript">
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: '@ViewBag.Message',
+                        timer: 10000
+    })
+    };
+    }
+</script>*@
+
+@*Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong!',
+      footer: '<a href="">Why do I have this issue?</a>'
+    })*@
+

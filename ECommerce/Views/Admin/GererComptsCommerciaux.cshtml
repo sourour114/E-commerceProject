@@ -4,7 +4,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h1 class="card-title" style="font-size: 30px; color:black;"><img src="~/Data/user.png" style="width:40px; height:40px;" /> Les commercials</h1>
+                    <h1 class="card-title" style="font-size: 30px; color:black;"><img src="~/Data/user.png" style="width:40px; height:40px;" /> Les commerciaux</h1>
 
                     <div class="card-tools" style="margin:15px">
                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -36,7 +36,7 @@
                             {
                                 <tr id="@x.IdCommercial" style="color:darkslategray;">
                                     <td>@x.NomPrenom</td>
-                                    <td>@x.Mail</td>
+                                    <td>@x.LogIn</td>
                                     <td>@x.Telephone</td>
                                     <td>@x.DateNaissance</td>
                                     <td>@x.Salaire</td>
@@ -54,7 +54,9 @@
         <table>
             <tr>
                 <td>
-                    <button type="button" class="btn btn-block btn-secondary btn-lg" style="width: 150px; margin: 20px 20px 20px 20px;">Ajouter</button>
+                    <button type="button" class="btn btn-block btn-secondary btn-lg" style="width: 150px; margin: 20px 20px 20px 20px;" onclick="location.href='@Url.Action("AjoutCommercial","Admin")'">Ajouter</button>
+                    @*//cette ligne va automatiquement créer une balise <a> avec href="admin/ajoutercommercial" et le text = Ajouter*@
+                    @*@Html.ActionLink("Ajouter", "AjouterCommercial", "Admin");*@
                 </td>
                 <td>
                     <button type="button" class="btn btn-block btn-secondary btn-lg" style="width: 150px; margin: 20px 20px 20px 20px;">Modifier</button>
@@ -63,4 +65,5 @@
         </table>
     </div>
 </div>
+
 
