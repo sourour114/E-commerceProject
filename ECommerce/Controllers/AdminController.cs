@@ -41,12 +41,14 @@ namespace ECommerce.Controllers
         public ActionResult AjoutCommercial(string NomPrenom, int phone, string DateNaissance, string LogIn, string Password, int Salaire)
         //public ActionResult AjoutCommercial(Commercial commercial)
         {
+            ViewBag.Message = null;
             if (db.Commercial.Any(x => x.NomPrenom == NomPrenom && x.LogIn == LogIn && x.Password == Password))
+                    
             {
-                ViewBag.Message = "Déja existant !";
-                //return View();
-                //return Content("<script language='javascript' type='text/javascript'>alert('Thanks for Feedback!');</script>");
-            }
+                        ViewBag.Message = "Déja existant !";
+                        return View();
+                        //return Content("<script type='text/javascript'>$(document).ready(function()  {Swal({icon: 'error',title: 'Oops...',text: 'Something went wrong!',footer: '<a href=''>Why do I have this issue?</a>'})});</ script > ");
+                    }
             Commercial commercial = new Commercial();
             commercial.NomPrenom = NomPrenom;
             commercial.Telephone = phone;
@@ -55,8 +57,31 @@ namespace ECommerce.Controllers
             commercial.Password = Password;
             commercial.Salaire = Salaire;
             db.Commercial.Add(commercial);
-            db.SaveChanges(); 
+            db.SaveChanges();
             return RedirectToAction("GererComptsCommerciaux", "Admin");
+        
+        }
+        public ActionResult ModifierCompt()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ModifierCompt(string AdrMail, string Password)
+        {
+            if(db.Commercial.Any(x => x.LogIn==AdrMail && x.Password == Password))
+            {
+                Commercial commercial = db.Commercial.Where(x =>x.LogIn == AdrMail).FirstOrDefault();
+
+                return RedirectToAction("Modifier", "Admin", commercial.Id);
+
+            }
+            return View();
+        }
+        public ActionResult Modifier(int Id=2)
+        {
+            Commercial commercial = db.Commercial.Find(Id);
+
+            return View(commercial);
         }
 
     }
