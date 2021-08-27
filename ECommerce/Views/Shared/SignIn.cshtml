@@ -26,16 +26,16 @@
                 <p style="color:red">@ViewBag.message</p>
 
                 <form action="@Url.Action("SignIn","Shared")" method="post">
-                    <div class="input-group mb-3">
-                        <input type="email" class="form-control" name="AdrMail" placeholder="Email">
-                        <div class="input-group-append">
+                    <div class="input-group mb-3" id="cadre" >
+                        <input type="email" class="form-control" name="AdrMail" id="AdrMail" placeholder="Email" required>
+                        <div class="input-group-append" >
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <span class="fas fa-envelope" id="icon"></span>
                             </div>
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" name="Password" placeholder="Password">
+                        <input type="password" class="form-control" name="Password" placeholder="Password" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -73,5 +73,6 @@
     <script src="~/FrontEnd/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="~/FrontEnd/dist/js/adminlte.min.js"></script>
+    <script src="~/Scripts/ProjectScript.js"></script>
 </body>
 </html>

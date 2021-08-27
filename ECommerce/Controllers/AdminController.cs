@@ -45,10 +45,10 @@ namespace ECommerce.Controllers
             if (db.Commercial.Any(x => x.NomPrenom == NomPrenom && x.LogIn == LogIn && x.Password == Password))
                     
             {
-                        ViewBag.Message = "Déja existant !";
-                        return View();
-                        //return Content("<script type='text/javascript'>$(document).ready(function()  {Swal({icon: 'error',title: 'Oops...',text: 'Something went wrong!',footer: '<a href=''>Why do I have this issue?</a>'})});</ script > ");
-                    }
+                ViewBag.Message = "Déja existant !";
+                return View();
+                //return Content("<script type='text/javascript'>Swal.fire({icon: 'error',title: 'Oops...',text: 'Something went wrong!'});</script>");
+            }
             Commercial commercial = new Commercial();
             commercial.NomPrenom = NomPrenom;
             commercial.Telephone = phone;
@@ -56,32 +56,35 @@ namespace ECommerce.Controllers
             commercial.LogIn = LogIn;
             commercial.Password = Password;
             commercial.Salaire = Salaire;
+            commercial.Role = Models.Enummeratin.Role.commercial;
             db.Commercial.Add(commercial);
             db.SaveChanges();
             return RedirectToAction("GererComptsCommerciaux", "Admin");
         
         }
-        public ActionResult ModifierCompt()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult ModifierCompt(string AdrMail, string Password)
-        {
-            if(db.Commercial.Any(x => x.LogIn==AdrMail && x.Password == Password))
-            {
-                Commercial commercial = db.Commercial.Where(x =>x.LogIn == AdrMail).FirstOrDefault();
 
-                return RedirectToAction("Modifier", "Admin", commercial.Id);
 
-            }
-            return View();
-        }
-        public ActionResult Modifier(int Id=2)
+
+
+        public ActionResult Modifier(int Id)
         {
             Commercial commercial = db.Commercial.Find(Id);
 
             return View(commercial);
+        }
+        [HttpPost]
+        public ActionResult Modifier(Commercial commercial)
+        {
+            db.Entry(commercial).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("GererComptsCommerciaux", "Admin");
+        }
+        public ActionResult Supprimer(int Id)
+        {
+            db.Commercial.Remove(db.Commercial.Find(Id));
+            db.SaveChanges();
+            return RedirectToAction("GererComptsCommerciaux", "Admin");
         }
 
     }

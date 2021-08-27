@@ -140,6 +140,14 @@
     <Compile Include="Migrations\202108182127131_init.Designer.cs">
       <DependentUpon>202108182127131_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108240930461_somechanges.cs" />
+    <Compile Include="Migrations\202108240930461_somechanges.Designer.cs">
+      <DependentUpon>202108240930461_somechanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108240940321_somechangess.cs" />
+    <Compile Include="Migrations\202108240940321_somechangess.Designer.cs">
+      <DependentUpon>202108240940321_somechangess.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Commande.cs" />
@@ -156,6 +164,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\StyleProject.css" />
+    <Content Include="Data\edit.png" />
+    <Content Include="Data\x-button.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -173,6 +184,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\ProjectScript.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -196,12 +208,10 @@
     <Content Include="Views\Commande\Index.cshtml" />
     <Content Include="Views\Admin\GererComptsCommerciaux.cshtml" />
     <Content Include="Views\Admin\AjoutCommercial.cshtml" />
-    <Content Include="Views\Admin\ModifierCompt.cshtml" />
     <Content Include="Views\Admin\Modifier.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Data\" />
     <Folder Include="FrontEnd\" />
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +233,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202108182127131_init.resx">
       <DependentUpon>202108182127131_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108240930461_somechanges.resx">
+      <DependentUpon>202108240930461_somechanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108240940321_somechangess.resx">
+      <DependentUpon>202108240940321_somechangess.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,110 +1,114 @@
-﻿<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); ">
-    <div class="register-box " style="width:max-content;">
-        <div class="card">
-            <div class="card-body register-card-body">
-                <p class="login-box-msg">Ajout d'un commercial</p>
+﻿<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-                <form action="@Url.Action("AjoutCommercial","Admin")" method="post">
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" name="NomPrenom" placeholder="Nom  Prénom">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-user"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <input type="number" class="form-control" name="phone" placeholder="Télèphone">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-user"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <input type="date" class="form-control" name="DateNaissance" placeholder="jj/mm/aaaa">
 
-                                </div>
-                            </td>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <input type="email" class="form-control" name="LogIn" placeholder="Email">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-envelope"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <input type="number" class="form-control" name="Cin" placeholder="CIN">
 
+
+<div class="card register-box" style="width: max-content; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div class="card-body register-card-body">
+        <p class="login-box-msg">Ajout d'un commercial</p>
+           @ViewBag.Message
+
+        <form action="@Url.Action("AjoutCommercial","Admin")" method="post" id="form">
+            <table>
+                <tr>
+                    <td>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="NomPrenom" placeholder="Nom  Prénom" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
                                 </div>
-                            </td>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <input type="password" class="form-control" name="Password" placeholder="Password">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-lock"></span>
-                                        </div>
-                                    </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" name="phone" placeholder="Télèphone" required id="Phone">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <input type="number" class="form-control" name="Salaire" placeholder="Salaire">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-lock"></span>
-                                        </div>
-                                    </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="input-group mb-3">
+                            <input type="date" class="form-control" name="DateNaissance" placeholder="jj/mm/aaaa" required>
+
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" id="AdrMail" name="LogIn" placeholder="Email" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
                                 </div>
-                            </td>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <button type="submit" id="btn" class="btn btn-primary btn-block">Register</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" name="Cin" placeholder="CIN" required>
+
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" name="Password" placeholder="Password" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
                                 </div>
-                            </td>
-                        </tr>
-                    </table>
-                </form>
-            </div>
-        </div><!-- /.card -->
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" name="Salaire" placeholder="Salaire" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group mb-3">
+                            <button type="submit" id="btn" class="btn btn-primary btn-block">Register</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>
 </div>
-@*<input type="button" id="btnn" class="btn btn-primary btn-block" value="Register" />*@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="~/Scripts/jquery-3.4.1.slim.min.js"></script>
-<script type='text/javascript'>
-    if (@ViewBag.Message != null) {
-        $('#btn').on('click', function () {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-                footer: '<a href="">Why do I have this issue?</a>'
-            })
-        })
-    }
 
-</script>
+<script src="~/Scripts/ProjectScript.js"></script>
 
+
+
+
+@*<script type='text/javascript'>
+        if (@ViewBag.Message != null) {
+      //      $('#btn').on('click', function () {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                    footer: '<a href="">Why do I have this issue?</a>'
+                })
+     //       })
+        }
+
+    </script>*@
 @*Swal.fire({
       icon: 'error',
       title: 'Oops...',

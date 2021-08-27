@@ -5,7 +5,6 @@
             <div class="card">
                 <div class="card-header">
                     <h1 class="card-title" style="font-size: 30px; color:black;"><img src="~/Data/user.png" style="width:40px; height:40px;" /> Les commerciaux</h1>
-
                     <div class="card-tools" style="margin:15px">
                         <div class="input-group input-group-sm" style="width: 150px;">
                             <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
@@ -28,18 +27,136 @@
                                 <th>Télèphone</th>
                                 <th>Date de naissance</th>
                                 <th>Salaire</th>
+                                <th>Action</th>
 
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var x in Model)
                             {
-                                <tr id="@x.IdCommercial" style="color:darkslategray;">
+                                <tr id="@x.Id" style="color:darkslategray;">
                                     <td>@x.NomPrenom</td>
                                     <td>@x.LogIn</td>
                                     <td>@x.Telephone</td>
                                     <td>@x.DateNaissance</td>
                                     <td>@x.Salaire</td>
+                                    <td>
+
+                                        <!-- Button trigger modal -->
+                                        @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">*@
+                                        <button class="delete-button" id="@x.Id">
+                                            <img src="~/Data/x-button.png" style="width:17px; height:17px;" title="supprimer" id="@x.Id" />
+                                        </button>
+                                        @*</button>*@
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Attention !</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        voulez-vous supprimer ce champ?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary ">OK</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="~/Data/edit.png" style="width:17px; height:17px;" @*onclick="location.href='@Url.Action("Modifier","Admin", new {Id=x.Id })'"*@ title="modifier" class="modif"/>
+                                        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel"> Modification</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="@Url.Action("Modifier","Admin")" method="post">
+                                                            <table>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div class="input-group mb-3">
+                                                                            <input type="text" class="form-control" name="NomPrenom" value="@x.NomPrenom" required>
+                                                                            <div class="input-group-append">
+                                                                                <div class="input-group-text">
+                                                                                    <span class="fas fa-user"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="input-group mb-3">
+                                                                            <input type="number" class="form-control" name="Telephone" value="@x.Telephone" required>
+                                                                            <div class="input-group-append">
+                                                                                <div class="input-group-text">
+                                                                                    <span class="fas fa-user"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div class="input-group mb-3">
+                                                                            <input type="date" class="form-control" name="DateNaissance" placeholder="jj/mm/aaaa" value="@x.DateNaissance" required>
+
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="input-group mb-3">
+                                                                            <input type="number" class="form-control" name="Salaire" value="@x.Salaire" required>
+                                                                            <div class="input-group-append">
+                                                                                <div class="input-group-text">
+                                                                                    <span class="fas fa-lock"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div class="input-group mb-3">
+                                                                            <input type="email" class="form-control" id="AdrMail" name="LogIn" value="@x.LogIn" required>
+                                                                            <div class="input-group-append">
+                                                                                <div class="input-group-text">
+                                                                                    <span class="fas fa-envelope"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="input-group mb-3">
+                                                                            <input type="password" class="form-control" name="Password" value="@x.Password" required>
+                                                                            <div class="input-group-append">
+                                                                                <div class="input-group-text">
+                                                                                    <span class="fas fa-lock"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary submit ">submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </td>
                                 </tr>
                             }
                         </tbody>
@@ -54,16 +171,58 @@
         <table>
             <tr>
                 <td>
-                    <button type="button" class="btn btn-block btn-secondary btn-lg" style="width: 150px; margin: 20px 20px 20px 20px;" onclick="location.href='@Url.Action("AjoutCommercial","Admin")'">Ajouter</button>
-                    @*//cette ligne va automatiquement créer une balise <a> avec href="admin/ajoutercommercial" et le text = Ajouter*@
-                    @*@Html.ActionLink("Ajouter", "AjouterCommercial", "Admin");*@
-                </td>
-                <td>
-                    <button type="button" class="btn btn-block btn-secondary btn-lg" style="width: 150px; margin: 20px 20px 20px 20px;"onclick="location.href='@Url.Action("ModifierCompt","Admin")'">Modifier</button>
+                    <div>
+                        <button type="button" class="btn btn-block btn-secondary btn-lg" style="width: 150px; margin: 20px 20px 20px 20px;" onclick="location.href='@Url.Action("AjoutCommercial","Admin")'">Ajouter</button>
+                    </div>
+
+
                 </td>
             </tr>
         </table>
     </div>
 </div>
+<script src="~/Scripts/ProjectScript.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".delete-button").click(function (event) {
+
+        alert(event.target.id);
+        var id2 = $(this).closest('tr').attr('id');
+        //alert(id2);
+        //var url = '@Url.Action("Supprimer", "Admin")';
+        //$('#exampleModal').modal({
+        //    closeExisting: false
+        //});
+        //$.get(url, id2, function () { $("#" + id2).remove() },);
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("Supprimer", "Admin")',
+            data: { Id:id2 },
+            success: function () { $("#" + id2).remove() },
+            error: function () { alert("error") }
+        });
+    });
+
+
+
+    //$(".modif").click(function (event) {
+
+    //    var id2 = $(this).closest('tr').attr('id');
+    //    $('#exampleModal1').modal({
+    //        closeExisting: false
+    //    });
+    //    $(".submit").click(function () {
+
+    //    });
+    //});
+})
+</script>
+
+
+
+
+
 
 
