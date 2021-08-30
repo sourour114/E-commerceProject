@@ -1,5 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +25,6 @@
     <!-- summernote -->
     <link rel="stylesheet" href="~/FrontEnd/plugins/summernote/summernote-bs4.min.css">
 
-    <link href="~/Content/StyleProject.css" rel="stylesheet" />
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 
@@ -57,16 +55,7 @@
                     </div>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block dropdown">
-                    <div class="dropdown">
-                        <p class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" onclick="fontion1()">Commercials</p>
-                        <ul class="dropdown-menu ">
-                            <li><a href="@Url.Action("GererComptsCommerciaux", "Admin")" class="dropdown-item">Afficher tous les comptes commerciales</a></li>
-                            <li><a href="@Url.Action("AjoutCommercial","Admin")" class="dropdown-item">Ajouter compte commerciale</a></li>
-                        </ul>
-                    </div>
-
-
-
+                    <a href="@Url.Action("GererComptsCommerciaux","admin")" class="nav-link">Commercials</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="@Url.Action("Index","Client")" class="nav-link">Clients</a>
@@ -164,6 +153,22 @@
     <script src="~/FrontEnd/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="~/FrontEnd/dist/js/pages/dashboard.js"></script>
-    <script src="~/Scripts/ProjectScript.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    
+    
+    <script>
+        $(".dropdown-toggle").click(function (event) {
+            var val = event.target.children[1];
+            var menuState = 0;
+            if (menuState === 0) {
+                $(val).slideDown("slow");
+                menuState = 1;
+            } else {
+                $(val).slideUp("slow");
+                menuState = 0;
+            }
+        });
+
+    </script>
 </body>
 </html>

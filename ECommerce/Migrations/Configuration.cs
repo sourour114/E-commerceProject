@@ -19,7 +19,6 @@ namespace ECommerce.Migrations
             {
                 Users Admin = new Users()
                 {
-                    Id = 0,
                     NomPrenom = "Mahdi",
                     LogIn = "mahdi.khardani@gmail.com",
                     Telephone = 26456789,
