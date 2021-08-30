@@ -13,8 +13,11 @@ namespace ECommerce.Controllers
         private AppDbContext db = new AppDbContext();
         public ActionResult Index()
         {
-            var commercials = db.Commercial.ToList();
-            return View(commercials);
+            var cmd = db.Commande.Count();
+            var clt = db.Client.Count();
+            var prod = db.Produit.Count();
+            int[] tab = { prod, cmd, clt};
+            return View(tab);
         }
         
     }

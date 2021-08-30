@@ -1,65 +1,47 @@
-﻿@model List<ECommerce.Models.Commercial>
-<div style="color:darkgray; margin-top:0px; padding-top:50px;">
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h1 class="card-title" style="font-size: 30px; color:black;"><img src="~/Data/user.png" style="width:40px; height:40px;" /> Les commercials</h1>
+﻿@model int[]
+<div class="row" style="padding-top:5%;">
+    <div class="col-md-6">
+        <div class="small-box" style="background-color:white">
+            <div class="inner">
+                <h3>@Model[2]</h3>
 
-                    <div class="card-tools" style="margin:15px">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body table-responsive p-0" style="height: 300px;">
-                    <table class="table table-head-fixed text-nowrap">
-                        <thead>
-                            <tr style="color:black">
-                                <th>Nom et Prénom</th>
-                                <th>Email</th>
-                                <th>Télèphone</th>
-                                <th>Date de naissance</th>
-                                <th>Salaire</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var x in Model)
-                            {
-                                <tr id="@x.IdCommercial" style="color:darkslategray;">
-                                    <td>@x.NomPrenom</td>
-                                    <td>@x.LogIn</td>
-                                    <td>@x.Telephone</td>
-                                    <td>@x.DateNaissance</td>
-                                    <td>@x.Salaire</td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-                <!-- /.card-body -->
+                <p>Les clients</p>
             </div>
-            <!-- /.card -->
+            <div class="icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <a href="@Url.Action("Client","Admin")" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
         </div>
+
+        <div class="small-box" style="background-color:white">
+            <div class="inner">
+                <h3>@Model[1]</h3>
+
+                <p>Les commandes</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <a href="@Url.Action("Commande","Admin")" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+        </div>
+        <div class="small-box" style="background-color:white">
+            <div class="inner">
+                <h3>@Model[0]</h3>
+
+                <p>Les produits</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-shopping-basket"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+        </div>
+
     </div>
-    <div>
-        <table>
-            <tr>
-                <td>
-                    <button type="button" class="btn btn-block btn-secondary btn-lg" style="width: 150px; margin: 20px 20px 20px 20px;">Ajouter</button>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-block btn-secondary btn-lg" style="width: 150px; margin: 20px 20px 20px 20px;">Modifier</button>
-                </td>
-            </tr>
-        </table>
-    </div>
+    <!-- /.col -->
 </div>
